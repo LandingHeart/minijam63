@@ -80,4 +80,8 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(boxcollider.bounds.center, Vector2.down * (boxcollider.bounds.extents.y + height), rayColor);
         return raycastHit.collider != null;
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+    }
 }
