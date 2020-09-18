@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     //private PlayerAnimation _playerAnim;
 
     [SerializeField]
-    private float jumpForce = 30f;
+    private float jumpForce = 10f;
 
     [SerializeField]
     private bool _grounded = true;
@@ -29,10 +29,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Debug.Log(IsGrounded());
-    }
-
-    void FixedUpdate()
-    {
         Movement();
     }
 
