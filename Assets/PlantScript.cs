@@ -8,12 +8,11 @@ public class PlantScript : MonoBehaviour
     public GameObject seed;
     public GameObject tree;
     public bool on = false;
-    Rigidbody2D rb;
-    Collider2D collider;
+    bool is_Tree = false;
+    GameObject player;
 
     void Start(){
-        rb = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        player = GameObject.Find("Player");
     }
     // Update is called once per frame
     void Update()
@@ -22,24 +21,29 @@ public class PlantScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                seed.SetActive(false);
-                tree.SetActive(true);
-                on = false;
-                rb.velocity = Vector3.zero;
-                rb.isKinematic = true; // Deactivated
-                collider.enabled = false;
+                if(player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
+                    seed.SetActive(false);
+                    tree.SetActive(true);
+                    is_Tree = true;
+                    on = false;
+                }
             }
            
         }else
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                seed.SetActive(true);
-                tree.SetActive(false);
-                on = true;
-                rb.isKinematic = false; // Activated
-                collider.enabled = true;
+                if(player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
+                    seed.SetActive(true);
+                    tree.SetActive(false);
+                    is_Tree = false;
+                    on = true;
+                }
             }
         }
+    }
+
+    public bool isTree(){
+        return is_Tree;
     }
 }

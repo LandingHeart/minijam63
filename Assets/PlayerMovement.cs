@@ -10,9 +10,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask layermask;
     [SerializeField] LayerMask treeLayer;
+    [SerializeField] LayerMask plantLayer;
     public float distance;
     bool isClimbing = false;
     float climb;
+
+    public Transform grabDetect;
+    public Transform boxHolder;
+    public float holdRayDist;
+    bool isHolding = false;
 
     //private PlayerAnimation _playerAnim;
 
@@ -36,6 +42,10 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
+    public bool isHoldingItem(){
+        return isHolding;
+    }
+
     public void Movement()
     {
         float move = Input.GetAxisRaw("Horizontal");
@@ -51,6 +61,38 @@ public class PlayerMovement : MonoBehaviour
             //StartCoroutine(ResetJumpNeededRoutine());
         }
 
+        checkHoldItem();
+
+        checkClimbing();
+
+
+    }
+
+    void checkHoldItem(){
+        RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, holdRayDist, plantLayer);
+        if(grabCheck.collider != null){
+            Debug.Log("seed");
+            if(!isHolding && Input.GetKeyDown(KeyCode.E)){
+                PlantScript plantScript = grabCheck.collider.gameObject.GetComponent<PlantScript>();
+                if(plantScript && !plantScript.isTree()){
+                    isHolding = true;
+                    grabCheck.collider.gameObject.transform.parent = boxHolder;
+                    grabCheck.collider.gameObject.transform.position = boxHolder.position;
+                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                }
+                
+            }else if(isHolding && Input.GetKeyDown(KeyCode.E)){
+                PlantScript plantScript = grabCheck.collider.gameObject.GetComponent<PlantScript>();
+                if(plantScript && !plantScript.isTree()){
+                    isHolding = false;
+                    grabCheck.collider.gameObject.transform.parent = null;
+                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                }
+            }
+        }
+    }
+
+    void checkClimbing(){
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, treeLayer);
         if(hitInfo.collider != null){
             Debug.Log("tree");
@@ -69,6 +111,8 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = 5;
         }
     }
+
+
     private void CheckFaceDirection(float move)
     {
         if (move > 0 && faceRight)

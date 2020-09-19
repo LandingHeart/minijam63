@@ -8,7 +8,11 @@ public class PlayerScript : MonoBehaviour
     public GameObject nowPlatform;
     public GameObject futurePlatform;
     public bool on = false;
-    
+    GameObject player;
+
+    void Start(){
+        player = GameObject.Find("Player");
+    }
 
     // Update is called once per frame
     void Update()
@@ -17,18 +21,22 @@ public class PlayerScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                nowPlatform.SetActive(false);
-                futurePlatform.SetActive(true);
-                on = false;
+                if(player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
+                    nowPlatform.SetActive(false);
+                    futurePlatform.SetActive(true);
+                    on = false;
+                }
             }
            
         }else
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                nowPlatform.SetActive(true);
-                futurePlatform.SetActive(false);
-                on = true;
+                if(player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
+                    nowPlatform.SetActive(true);
+                    futurePlatform.SetActive(false);
+                    on = true;
+                }
             }
         }
     }
