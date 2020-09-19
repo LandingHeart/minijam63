@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject pastPlatform;
     public GameObject nowPlatform;
+    public GameObject futurePlatform;
     public bool on = false;
     
 
@@ -17,8 +17,8 @@ public class PlayerScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                pastPlatform.SetActive(false);
-                nowPlatform.SetActive(true);
+                nowPlatform.SetActive(false);
+                futurePlatform.SetActive(true);
                 on = false;
             }
            
@@ -26,8 +26,8 @@ public class PlayerScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                pastPlatform.SetActive(true);
-                nowPlatform.SetActive(false);
+                nowPlatform.SetActive(true);
+                futurePlatform.SetActive(false);
                 on = true;
             }
         }

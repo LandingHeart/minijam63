@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour
     public bool faceRight;
     [SerializeField]
     private LayerMask layermask;
+    [SerializeField] LayerMask treeLayer;
+    public float distance;
+    bool isClimbing = false;
+    float climb;
 
     //private PlayerAnimation _playerAnim;
 
@@ -28,13 +32,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(IsGrounded());
+        // Debug.Log(IsGrounded());
         Movement();
     }
 
     public void Movement()
     {
         float move = Input.GetAxisRaw("Horizontal");
+
         CheckFaceDirection(move);
 
         rb.velocity = new Vector2(move * speed, rb.velocity.y);
@@ -44,6 +49,24 @@ public class PlayerMovement : MonoBehaviour
             //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             //StartCoroutine(ResetJumpNeededRoutine());
+        }
+
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, treeLayer);
+        if(hitInfo.collider != null){
+            Debug.Log("tree");
+            if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)){
+                isClimbing = true;
+            }
+        }else{
+            isClimbing = false;
+        }
+
+        if(isClimbing){
+            climb = Input.GetAxisRaw("Vertical");
+            rb.velocity = new Vector2(rb.velocity.x, climb * speed);
+            rb.gravityScale = 0;
+        }else{
+            rb.gravityScale = 5;
         }
     }
     private void CheckFaceDirection(float move)
@@ -66,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        float height = .05f;
+        float height = .3f;
         RaycastHit2D raycastHit = Physics2D.Raycast(boxcollider.bounds.center, Vector2.down, boxcollider.bounds.extents.y + height, layermask);
         Color rayColor;
         if (raycastHit.collider != null)

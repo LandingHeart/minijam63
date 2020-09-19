@@ -53,6 +53,10 @@ MonoBehaviour:
   layermask:
     serializedVersion: 2
     m_Bits: 256
+  treeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  distance: 0
   jumpForce: 22
   _grounded: 1
 --- !u!61 &2883734187946396135
@@ -96,7 +100,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -114,9 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d33db1e453254c1c9cb4f7545ab1e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pastPlatform: {fileID: 0}
   nowPlatform: {fileID: 0}
-  on: 0
+  futurePlatform: {fileID: 0}
+  on: 1
 --- !u!1 &2883734188335261194
 GameObject:
   m_ObjectHideFlags: 0
