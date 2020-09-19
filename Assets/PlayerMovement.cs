@@ -73,8 +73,8 @@ public class PlayerMovement : MonoBehaviour
         if(grabCheck.collider != null){
             Debug.Log("seed");
             if(!isHolding && Input.GetKeyDown(KeyCode.E)){
-                PlantScript plantScript = grabCheck.collider.gameObject.GetComponent<PlantScript>();
-                if(plantScript && !plantScript.isTree()){
+                ToggleTimeScript toggleTimeScript = GameObject.Find("GameMaster").GetComponent<ToggleTimeScript>();
+                if(toggleTimeScript && !toggleTimeScript.isTree()){
                     isHolding = true;
                     grabCheck.collider.gameObject.transform.parent = boxHolder;
                     grabCheck.collider.gameObject.transform.position = boxHolder.position;
@@ -82,8 +82,8 @@ public class PlayerMovement : MonoBehaviour
                 }
                 
             }else if(isHolding && Input.GetKeyDown(KeyCode.E)){
-                PlantScript plantScript = grabCheck.collider.gameObject.GetComponent<PlantScript>();
-                if(plantScript && !plantScript.isTree()){
+                ToggleTimeScript toggleTimeScript = GameObject.Find("GameMaster").GetComponent<ToggleTimeScript>();
+                if(toggleTimeScript && !toggleTimeScript.isTree()){
                     isHolding = false;
                     grabCheck.collider.gameObject.transform.parent = null;
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;

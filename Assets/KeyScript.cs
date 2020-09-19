@@ -16,8 +16,10 @@ public class KeyScript : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(collision.gameObject.name);
+        if(other.tag == "Player"){
+            Debug.Log("Win. Next Level.");
+        }
     }
 }

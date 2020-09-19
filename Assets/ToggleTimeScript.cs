@@ -14,6 +14,8 @@ public class ToggleTimeScript : MonoBehaviour
     public Animator[] seedAnimators;
     public GameObject nowPlatform;
     public GameObject futurePlatform;
+    public Animator[] nowAnimators;
+    public Animator[] futureAnimators;
     bool inCooldown = false;
 
     void Start(){
@@ -24,7 +26,7 @@ public class ToggleTimeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (on)
+        if (on)  // toggle to Future, everything in Now shall collaspe
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -37,12 +39,20 @@ public class ToggleTimeScript : MonoBehaviour
                             tree.SetActive(true);
                         }
                         
-                        nowPlatform.SetActive(false);
                         futurePlatform.SetActive(true);
 
                         foreach (Animator treeAnimator in treeAnimators){
                             treeAnimator.SetTrigger("Grow");
                         }
+
+                        foreach (Animator nowAnimator in nowAnimators){
+                            nowAnimator.SetTrigger("Shrink");
+                        }
+                        foreach (Animator futureAnimators in futureAnimators){
+                            futureAnimators.SetTrigger("Grow");
+                        }
+
+                        StartCoroutine("setBuildingsToFalseInSeconds", nowPlatform);
                         
                         is_Tree = true;
                         on = false;
@@ -67,8 +77,16 @@ public class ToggleTimeScript : MonoBehaviour
                         }
                         StartCoroutine(setToFalseInSeconds());
                         nowPlatform.SetActive(true);
-                        futurePlatform.SetActive(false);
+
+
+                        foreach (Animator nowAnimator in nowAnimators){
+                            nowAnimator.SetTrigger("Grow");
+                        }
+                        foreach (Animator futureAnimator in futureAnimators){
+                            futureAnimator.SetTrigger("Shrink");
+                        }
                         
+                        StartCoroutine("setBuildingsToFalseInSeconds", futurePlatform);
                         is_Tree = false;
                         on = true;
                         inCooldown = true;
@@ -84,6 +102,12 @@ public class ToggleTimeScript : MonoBehaviour
         foreach (GameObject tree in trees){
             tree.SetActive(false);
         }
+    }
+
+    IEnumerator setBuildingsToFalseInSeconds(GameObject platform)
+    {
+        yield return new WaitForSeconds(1f);
+        platform.SetActive(false);
     }
 
     IEnumerator cooldownQ(){
