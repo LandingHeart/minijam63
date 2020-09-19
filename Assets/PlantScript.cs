@@ -16,7 +16,6 @@ public class PlantScript : MonoBehaviour
     void Start(){
         player = GameObject.Find("Player");
         //treeAnimator.SetTrigger("GrowSmall");
-        //treeAnimator.SetTrigger("GrowSmall");
 
     }
     // Update is called once per frame
@@ -55,7 +54,7 @@ public class PlantScript : MonoBehaviour
     }
     IEnumerator setToFalseInSeconds()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         tree.SetActive(false);
     }
 
