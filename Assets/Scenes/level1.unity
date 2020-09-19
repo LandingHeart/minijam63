@@ -9492,30 +9492,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: plant
       objectReference: {fileID: 0}
-    - target: {fileID: 8243270494686744999, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8243270496148200965, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.233
-      objectReference: {fileID: 0}
-    - target: {fileID: 8243270496148200965, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8243270496148200965, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8243270496148200965, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8243270496148201018, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.72
