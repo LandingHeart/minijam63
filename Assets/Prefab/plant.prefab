@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: {fileID: 8243270494686744999}
   tree: {fileID: 8243270496148201018}
-  on: 0
+  on: 1
 --- !u!61 &5185297048006835127
 BoxCollider2D:
   m_ObjectHideFlags: 0

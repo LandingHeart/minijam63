@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nowPlatform: {fileID: 0}
   futurePlatform: {fileID: 0}
-  on: 0
+  on: 1
 --- !u!1 &2883734188335261194
 GameObject:
   m_ObjectHideFlags: 0
