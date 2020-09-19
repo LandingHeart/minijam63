@@ -10,9 +10,14 @@ public class PlantScript : MonoBehaviour
     public bool on = false;
     bool is_Tree = false;
     GameObject player;
+    public Animator treeAnimator;
+    public Animator seedAnimator;
 
     void Start(){
         player = GameObject.Find("Player");
+        //treeAnimator.SetTrigger("GrowSmall");
+        //treeAnimator.SetTrigger("GrowSmall");
+
     }
     // Update is called once per frame
     void Update()
@@ -21,9 +26,11 @@ public class PlantScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                if(player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
+                if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     seed.SetActive(false);
                     tree.SetActive(true);
+                    treeAnimator.SetTrigger("Grow");
+
                     is_Tree = true;
                     on = false;
                 }
@@ -33,14 +40,23 @@ public class PlantScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                if(player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
+                if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     seed.SetActive(true);
-                    tree.SetActive(false);
+                    treeAnimator.SetTrigger("GrowSmall");
+
+                    
+                    StartCoroutine(setToFalseInSeconds());
+
                     is_Tree = false;
                     on = true;
                 }
             }
         }
+    }
+    IEnumerator setToFalseInSeconds()
+    {
+        yield return new WaitForSeconds(0.5f);
+        tree.SetActive(false);
     }
 
     public bool isTree(){
