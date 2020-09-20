@@ -38,9 +38,13 @@ public class ToggleTimeScript : MonoBehaviour
 
                 nowPlatform.SetActive(true);
                 futurePlatform.SetActive(false);
-                debris.SetActive(true);
-                particle.Play();
-         
+                if(debris != null)
+                {
+                    debris.SetActive(true);
+                    particle.Play();
+
+                }
+
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
 
@@ -106,7 +110,11 @@ public class ToggleTimeScript : MonoBehaviour
                 nowPlatform.SetActive(false);
                 futurePlatform.SetActive(true);
                 //particle.Stop();
-                debris.SetActive(false);
+                if(debris != null)
+                {
+                    debris.SetActive(false);
+                }
+         
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
                         if(!player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
