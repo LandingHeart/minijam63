@@ -34,8 +34,8 @@ public class Level1Script : MonoBehaviour
                     nowBackgroundmap.SetActive(true);
                     futureBackgroundmap.SetActive(false);
                     futurePlatform.SetActive(false);
-                    nowCloud.SetActive(true);
-                    futureClound.SetActive(false);
+                    // nowCloud.SetActive(true);
+                    // futureClound.SetActive(false);
 
                     debris.StopDebris();
 
@@ -50,8 +50,8 @@ public class Level1Script : MonoBehaviour
                     nowBackgroundmap.SetActive(false);
                     futureBackgroundmap.SetActive(true);
                     futurePlatform.SetActive(true);
-                    nowCloud.SetActive(false);
-                    futureClound.SetActive(true);
+                    // nowCloud.SetActive(false);
+                    // futureClound.SetActive(true);
                     debris.InitDebris();
                     on = true;
                 }
