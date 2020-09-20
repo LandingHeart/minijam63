@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool showAlert = false;
 
+    bool isJumpCoolDown = false;
     public Animator _anim;
 
     // Start is called before the first frame update
@@ -83,9 +84,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (canJump)
+            if (canJump && !isJumpCoolDown)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                canJump = false;
+                isJumpCoolDown = true;
+                StartCoroutine(cooldownJump());
                 _anim.SetTrigger("Jump");
             }
             canJump = false;
@@ -233,5 +237,10 @@ public class PlayerMovement : MonoBehaviour
     {
         // alertHolder.gameObject.SetActive(false);
         // showAlert = false;
+    }
+
+    IEnumerator cooldownJump(){
+        yield return new WaitForSeconds(0.8f);
+        isJumpCoolDown = false;
     }
 }

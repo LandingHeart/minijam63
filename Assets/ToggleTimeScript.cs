@@ -36,8 +36,6 @@ public class ToggleTimeScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q))
             {
 
-                nowPlatform.SetActive(true);
-                futurePlatform.SetActive(false);
                 if(debris != null)
                 {
                     debris.SetActive(true);
@@ -107,8 +105,6 @@ public class ToggleTimeScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                nowPlatform.SetActive(false);
-                futurePlatform.SetActive(true);
                 //particle.Stop();
                 if(debris != null)
                 {
