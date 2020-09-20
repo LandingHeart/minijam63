@@ -20,6 +20,8 @@ public class ToggleTimeScript : MonoBehaviour
     public Animator[] nowAnimators;
     public Animator[] futureAnimators;
     bool inCooldown = false;
+    public GameObject debris;
+    public ParticleSystem particle;
 
     void Start(){
         player = GameObject.Find("Player");
@@ -33,6 +35,12 @@ public class ToggleTimeScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+
+                nowPlatform.SetActive(true);
+                futurePlatform.SetActive(false);
+                debris.SetActive(true);
+                particle.Play();
+         
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
 
@@ -95,6 +103,10 @@ public class ToggleTimeScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                nowPlatform.SetActive(false);
+                futurePlatform.SetActive(true);
+                //particle.Stop();
+                debris.SetActive(false);
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
                         if(!player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
