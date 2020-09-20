@@ -20,6 +20,8 @@ public class KeyScript : MonoBehaviour
     {
         if(other.tag == "Player"){
             Debug.Log("Win. Next Level.");
+            SceneManagerScript sceneManagerScript = GameObject.Find("SceneManager").GetComponent<SceneManagerScript>();
+            sceneManagerScript.nextLevel();
         }
     }
 }

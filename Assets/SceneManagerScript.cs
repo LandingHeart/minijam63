@@ -21,5 +21,8 @@ public class SceneManagerScript : MonoBehaviour
         }
     }
 
+    public void nextLevel(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     
 }
