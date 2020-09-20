@@ -6,6 +6,7 @@ TagManager:
   tags:
   - tree
   - specialPlant
+  - MovingBlock
   layers:
   - Default
   - TransparentFX

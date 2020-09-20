@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 2883734187946396135}
   - component: {fileID: 2883734187946396134}
   - component: {fileID: 2883734187729725022}
+  - component: {fileID: 5508276055273172414}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -155,7 +156,6 @@ MonoBehaviour:
   distance: 5
   grabDetect: {fileID: 2018173696}
   boxHolder: {fileID: 673728}
-  alertHolder: {fileID: 0}
   holdRayDist: 2
   jumpForce: 25
   _grounded: 1
@@ -229,6 +229,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5508276055273172414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883734187946396133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208c50f6f360a9f4dad34bdcde4c20f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2883734188335261194
 GameObject:
   m_ObjectHideFlags: 0
