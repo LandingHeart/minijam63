@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.Raycast(new Vector2(transform.position.x - 0.5f, transform.position.y), Vector2.down, 1.1f, layermask);
+        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, layermask);
         Color rayColor;
         if (raycastHit.collider != null)
         {
@@ -157,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rayColor = Color.green;
         }
-        Debug.DrawRay(new Vector2(transform.position.x - 0.5f, transform.position.y), Vector2.down * 1.1f, rayColor);
+        Debug.DrawRay(transform.position, Vector2.down * 1.1f, rayColor);
         // Debug.Log(raycastHit.collider.name);
         return raycastHit.collider != null;
     }
