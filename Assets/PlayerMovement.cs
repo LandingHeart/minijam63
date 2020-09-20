@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
             }
-            else if (isHolding && Input.GetKeyDown(KeyCode.Q))
+            else if (isHolding && !isHoldingSpecial && Input.GetKeyDown(KeyCode.Q))
             {
                 alertHolder.gameObject.SetActive(true);
                 showAlert = true;
