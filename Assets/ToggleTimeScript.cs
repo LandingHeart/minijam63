@@ -12,7 +12,7 @@ public class ToggleTimeScript : MonoBehaviour
     public GameObject[] special_trees;
     public Animator[] special_treeAnimators;
 
-    public bool on = false;
+    bool on = true;
     bool is_Tree = false;
     GameObject player;
     public Animator[] treeAnimators;
@@ -54,8 +54,7 @@ public class ToggleTimeScript : MonoBehaviour
                         foreach (GameObject tree in trees){
                             tree.SetActive(true);
                         }
-                        
-                        futurePlatform.SetActive(true);
+                        if(futurePlatform) futurePlatform.SetActive(true);
 
                         foreach (Animator treeAnimator in treeAnimators){
                             treeAnimator.SetTrigger("Grow");
@@ -101,7 +100,7 @@ public class ToggleTimeScript : MonoBehaviour
                             treeAnimator.SetTrigger("GrowSmall");
                         }
                         StartCoroutine(setToFalseInSeconds());
-                        nowPlatform.SetActive(true);
+                        if(nowPlatform) nowPlatform.SetActive(true);
 
 
                         foreach (Animator nowAnimator in nowAnimators){
@@ -140,7 +139,7 @@ public class ToggleTimeScript : MonoBehaviour
     IEnumerator setBuildingsToFalseInSeconds(GameObject platform)
     {
         yield return new WaitForSeconds(1f);
-        platform.SetActive(false);
+        if(platform) platform.SetActive(false);
     }
 
     IEnumerator cooldownQ(){
