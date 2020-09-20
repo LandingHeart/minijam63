@@ -17,7 +17,6 @@ public class RestartPoints : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //SceneManager.LoadScene("EndPage");
             player.position = cachePlayerPostion.position;
         }
     }
