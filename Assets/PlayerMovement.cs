@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxcollider;
     public static float damage = 10f;
     public Transform jumpPoint;
+    public bool canJump = true;
 
     // Start is called before the first frame update
     void Start()
@@ -56,12 +57,23 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(move * speed, rb.velocity.y);
 
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+
+
+        if (IsGrounded())
         {
+            canJump = true;
             //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             //StartCoroutine(ResetJumpNeededRoutine());
         }
+        if(Input.GetKeyDown(KeyCode.Space)){
+            if(canJump){
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
+            canJump = false;
+            
+        }
+
+        
 
         checkHoldItem();
 
@@ -146,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             rayColor = Color.green;
         }
         Debug.DrawRay(new Vector2(transform.position.x - 0.5f, transform.position.y), Vector2.down * 1.1f, rayColor);
-        Debug.Log(raycastHit.collider.name);
+        // Debug.Log(raycastHit.collider.name);
         return raycastHit.collider != null;
     }
     private void OnCollisionEnter2D(Collision2D collision)
