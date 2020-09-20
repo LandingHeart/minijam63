@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform grabDetect;
     public Transform boxHolder;
+    public Transform alertHolder;
     public float holdRayDist;
     bool isHolding = false;
     bool isHoldingSpecial = false;
@@ -33,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform jumpPoint;
     public bool canJump = true;
 
+    public bool showAlert = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,12 +49,14 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
-    public bool isHoldingItem(){
-        if(isHoldingSpecialItem()) return false;  // if holding special, then it means not holding normal
+    public bool isHoldingItem()
+    {
+        if (isHoldingSpecialItem()) return false;  // if holding special, then it means not holding normal
         return isHolding;
     }
 
-    public bool isHoldingSpecialItem(){
+    public bool isHoldingSpecialItem()
+    {
         return isHoldingSpecial;
     }
 
@@ -71,31 +76,36 @@ public class PlayerMovement : MonoBehaviour
             //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             //StartCoroutine(ResetJumpNeededRoutine());
         }
-        if(Input.GetKeyDown(KeyCode.Space)){
-            if(canJump){
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (canJump)
+            {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
             canJump = false;
-            
+
         }
 
-        
+
 
         checkHoldItem();
 
         checkClimbing();
-
-
     }
 
-    void checkHoldItem(){
+    void checkHoldItem()
+    {
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, holdRayDist, plantLayer);
-        if(grabCheck.collider != null){
+        if (grabCheck.collider != null)
+        {
             // Debug.Log("seed");
-            if(!isHolding && Input.GetKeyDown(KeyCode.E)){
+            if (!isHolding && Input.GetKeyDown(KeyCode.E))
+            {
                 ToggleTimeScript toggleTimeScript = GameObject.Find("GameMaster").GetComponent<ToggleTimeScript>();
-                if(toggleTimeScript && !toggleTimeScript.isTree()){
-                    if(grabCheck.collider.tag == "specialPlant"){
+                if (toggleTimeScript && !toggleTimeScript.isTree())
+                {
+                    if (grabCheck.collider.tag == "specialPlant")
+                    {
                         isHoldingSpecial = true;
                     }
                     isHolding = true;
@@ -103,20 +113,34 @@ public class PlayerMovement : MonoBehaviour
                     grabCheck.collider.gameObject.transform.position = boxHolder.position;
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 }
-                
-            }else if((isHolding || isHoldingSpecial) && Input.GetKeyDown(KeyCode.E)){
+
+            }
+            else if (isHolding && Input.GetKeyDown(KeyCode.Q))
+            {
+                alertHolder.gameObject.SetActive(true);
+                showAlert = true;
+                Invoke("hideAlert", 1f);
+            }
+            else if ((isHolding || isHoldingSpecial) && Input.GetKeyDown(KeyCode.E))
+            {
                 ToggleTimeScript toggleTimeScript = GameObject.Find("GameMaster").GetComponent<ToggleTimeScript>();
-                if(isHoldingSpecial){
-                    if(toggleTimeScript){
-                        if(grabCheck.collider.tag == "specialPlant"){
+                if (isHoldingSpecial)
+                {
+                    if (toggleTimeScript)
+                    {
+                        if (grabCheck.collider.tag == "specialPlant")
+                        {
                             isHoldingSpecial = false;
                         }
                         isHolding = false;
                         grabCheck.collider.gameObject.transform.parent = null;
                         grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
                     }
-                }else if(isHolding){
-                    if(toggleTimeScript && !toggleTimeScript.isTree()){
+                }
+                else if (isHolding)
+                {
+                    if (toggleTimeScript && !toggleTimeScript.isTree())
+                    {
                         isHolding = false;
                         grabCheck.collider.gameObject.transform.parent = null;
                         grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
@@ -127,22 +151,30 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void checkClimbing(){
+    void checkClimbing()
+    {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, treeLayer);
-        if(hitInfo.collider != null){
+        if (hitInfo.collider != null)
+        {
             // Debug.Log("tree");
-            if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)){
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            {
                 isClimbing = true;
             }
-        }else{
+        }
+        else
+        {
             isClimbing = false;
         }
 
-        if(isClimbing){
+        if (isClimbing)
+        {
             climb = Input.GetAxisRaw("Vertical");
             rb.velocity = new Vector2(rb.velocity.x, climb * speed);
             rb.gravityScale = 0;
-        }else{
+        }
+        else
+        {
             rb.gravityScale = 5;
         }
     }
@@ -164,6 +196,7 @@ public class PlayerMovement : MonoBehaviour
         faceRight = !faceRight;
         // _playerSpriteFlip.flipX = !_playerSpriteFlip.flipX;
         transform.Rotate(0f, 180f, 0f);
+        alertHolder.gameObject.transform.Rotate(0f, 180f, 0f);
     }
 
     public bool IsGrounded()
@@ -185,5 +218,11 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.name);
+    }
+
+    private void hideAlert()
+    {
+        alertHolder.gameObject.SetActive(false);
+        showAlert = false;
     }
 }
