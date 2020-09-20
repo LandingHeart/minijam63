@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform grabDetect;
     public Transform boxHolder;
-    public Transform alertHolder;
+    // public Transform alertHolder;
     public float holdRayDist;
     bool isHolding = false;
     bool isHoldingSpecial = false;
@@ -205,7 +205,7 @@ public class PlayerMovement : MonoBehaviour
         faceRight = !faceRight;
         // _playerSpriteFlip.flipX = !_playerSpriteFlip.flipX;
         transform.Rotate(0f, 180f, 0f);
-        alertHolder.gameObject.transform.Rotate(0f, 180f, 0f);
+        // alertHolder.gameObject.transform.Rotate(0f, 180f, 0f);
     }
 
     public bool IsGrounded()
@@ -231,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void hideAlert()
     {
-        alertHolder.gameObject.SetActive(false);
-        showAlert = false;
+        // alertHolder.gameObject.SetActive(false);
+        // showAlert = false;
     }
 }
