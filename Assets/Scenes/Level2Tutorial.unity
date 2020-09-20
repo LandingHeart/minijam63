@@ -665,11 +665,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4
+      value: 34.6
       objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1194,7 +1194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: 90}
+  m_AnchoredPosition: {x: -185, y: 21.539}
   m_SizeDelta: {x: 244.91895, y: 51.03421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1437241715
@@ -1249,7 +1249,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Go Cross Buildings
+  m_Text: Some buildings only exist in Now, and some only exist in Future
 --- !u!222 &1437241717
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1519,7 +1519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210, y: 88}
+  m_AnchoredPosition: {x: -250, y: 139.03}
   m_SizeDelta: {x: 208.36633, y: 51.034424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1640004782
@@ -1574,7 +1574,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Q to switch to future/current
+  m_Text: Press Q to toggle Now/Future
 --- !u!222 &1640004784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2134,8 +2134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 205, y: 98}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 93.644, y: 23.528}
+  m_SizeDelta: {x: 187.28842, y: 47.055244}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2098039297
 Animator:
@@ -2189,7 +2189,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press W to climb tree
+  m_Text: 'Seeds will grow in Future
+
+    Hold W to climb trees!'
 --- !u!222 &2098039299
 CanvasRenderer:
   m_ObjectHideFlags: 0
