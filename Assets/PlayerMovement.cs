@@ -104,16 +104,25 @@ public class PlayerMovement : MonoBehaviour
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 }
                 
-            }else if(isHolding && Input.GetKeyDown(KeyCode.E)){
+            }else if((isHolding || isHoldingSpecial) && Input.GetKeyDown(KeyCode.E)){
                 ToggleTimeScript toggleTimeScript = GameObject.Find("GameMaster").GetComponent<ToggleTimeScript>();
-                if(toggleTimeScript && !toggleTimeScript.isTree()){
-                    if(grabCheck.collider.tag == "specialPlant"){
-                        isHoldingSpecial = false;
+                if(isHoldingSpecial){
+                    if(toggleTimeScript){
+                        if(grabCheck.collider.tag == "specialPlant"){
+                            isHoldingSpecial = false;
+                        }
+                        isHolding = false;
+                        grabCheck.collider.gameObject.transform.parent = null;
+                        grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
                     }
-                    isHolding = false;
-                    grabCheck.collider.gameObject.transform.parent = null;
-                    grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                }else if(isHolding){
+                    if(toggleTimeScript && !toggleTimeScript.isTree()){
+                        isHolding = false;
+                        grabCheck.collider.gameObject.transform.parent = null;
+                        grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                    }
                 }
+
             }
         }
     }

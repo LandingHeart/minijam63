@@ -11,13 +11,11 @@ public class ToggleTimeScript : MonoBehaviour
     public GameObject[] special_seeds;
     public GameObject[] special_trees;
     public Animator[] special_treeAnimators;
-    public Animator[] special_seedAnimators;
 
     public bool on = false;
     bool is_Tree = false;
     GameObject player;
     public Animator[] treeAnimators;
-    public Animator[] seedAnimators;
     public GameObject nowPlatform;
     public GameObject futurePlatform;
     public Animator[] nowAnimators;
@@ -36,11 +34,20 @@ public class ToggleTimeScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
 
-
+                        if(!player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
+                            foreach (GameObject special_seeds in special_seeds){
+                                special_seeds.SetActive(false);
+                            }
+                            foreach (GameObject special_tree in special_trees){
+                                special_tree.SetActive(true);
+                            }
+                            foreach (Animator special_treeAnimator in special_treeAnimators){
+                                special_treeAnimator.SetTrigger("Grow");
+                            }
+                        }
                         foreach (GameObject seed in seeds){
                             seed.SetActive(false);
                         }
@@ -77,6 +84,15 @@ public class ToggleTimeScript : MonoBehaviour
             {
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
+                        if(!player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
+                            foreach (GameObject special_seeds in special_seeds){
+                                special_seeds.SetActive(true);
+                            }
+                            foreach (Animator special_treeAnimator in special_treeAnimators){
+                                special_treeAnimator.SetTrigger("GrowSmall");
+                            }
+                            StartCoroutine(setSpecialTreeToFalseInSeconds());
+                        }
                         foreach (GameObject seed in seeds){
                             seed.SetActive(true);
                         }
@@ -110,6 +126,14 @@ public class ToggleTimeScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         foreach (GameObject tree in trees){
             tree.SetActive(false);
+        }
+    }
+
+    IEnumerator setSpecialTreeToFalseInSeconds()
+    {
+        yield return new WaitForSeconds(1f);
+        foreach (GameObject special_tree in special_trees){
+            special_tree.SetActive(false);
         }
     }
 
