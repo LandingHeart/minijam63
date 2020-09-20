@@ -17,18 +17,18 @@ public class FollowMovingBlock : MonoBehaviour
     }
 
     void checkIsOnMovingBlock(){
-        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, layermask);
-        Color rayColor;
-        if (raycastHit.collider != null)
-        {
-            rayColor = Color.red;
-        }
-        else
-        {
-            rayColor = Color.green;
-        }
-        Debug.DrawRay(transform.position, Vector2.down * 1.1f, rayColor);
-        // Debug.Log(raycastHit.collider.name);
-        return raycastHit.collider != null;
+        // RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, layermask);
+        // Color rayColor;
+        // if (raycastHit.collider != null)
+        // {
+        //     rayColor = Color.red;
+        // }
+        // else
+        // {
+        //     rayColor = Color.green;
+        // }
+        // Debug.DrawRay(transform.position, Vector2.down * 1.1f, rayColor);
+        // // Debug.Log(raycastHit.collider.name);
+        // return raycastHit.collider != null;
     }
 }
