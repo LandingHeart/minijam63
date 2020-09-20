@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _grounded = true;
     private BoxCollider2D boxcollider;
     public static float damage = 10f;
+    public Transform jumpPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -133,8 +135,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        float height = .3f;
-        RaycastHit2D raycastHit = Physics2D.Raycast(boxcollider.bounds.center, Vector2.down, boxcollider.bounds.extents.y + height, layermask);
+        RaycastHit2D raycastHit = Physics2D.Raycast(new Vector2(transform.position.x - 0.5f, transform.position.y), Vector2.down, 1.1f, layermask);
         Color rayColor;
         if (raycastHit.collider != null)
         {
@@ -144,7 +145,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rayColor = Color.green;
         }
-        Debug.DrawRay(boxcollider.bounds.center, Vector2.down * (boxcollider.bounds.extents.y + height), rayColor);
+        Debug.DrawRay(new Vector2(transform.position.x - 0.5f, transform.position.y), Vector2.down * 1.1f, rayColor);
+        Debug.Log(raycastHit.collider.name);
         return raycastHit.collider != null;
     }
     private void OnCollisionEnter2D(Collision2D collision)
