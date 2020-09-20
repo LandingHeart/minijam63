@@ -5,23 +5,34 @@ using UnityEngine;
 public class KeyScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Animator playerAnim;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player"){
-            Debug.Log("Win. Next Level.");
-            SceneManagerScript sceneManagerScript = GameObject.Find("SceneManager").GetComponent<SceneManagerScript>();
-            sceneManagerScript.nextLevel();
+        if (other.tag == "Player") {
+            playerAnim.SetTrigger("Levelup");
+            StartCoroutine(GoToNextLevel());
         }
     }
+
+
+    IEnumerator GoToNextLevel()
+    {
+        yield return new WaitForSeconds(2f);
+        Debug.Log("Win. Next Level.");
+        SceneManagerScript sceneManagerScript = GameObject.Find("SceneManager").GetComponent<SceneManagerScript>();
+        sceneManagerScript.nextLevel();
+    }
 }
+        
+
