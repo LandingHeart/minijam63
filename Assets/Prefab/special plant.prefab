@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4968610420644032510}
   - component: {fileID: 5701844619983545871}
   - component: {fileID: 8728783685660201189}
+  - component: {fileID: 9218724627604494479}
   m_Layer: 10
   m_Name: special plant
   m_TagString: specialPlant
@@ -50,7 +51,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -94,6 +95,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7462fdf1306ed244fbf6e17588dbc0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9218724627604494479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5441042469918969444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9869dc8259d2ddf4098b39d0df67d362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 4968610420644032510}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!95 &8826805164378531029
 Animator:
   serializedVersion: 3

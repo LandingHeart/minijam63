@@ -1297,7 +1297,7 @@ GameObject:
   - component: {fileID: 1097094677}
   - component: {fileID: 1097094676}
   - component: {fileID: 1097094678}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Untitled_Artwork 56 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49714,7 +49714,7 @@ GameObject:
   - component: {fileID: 1574623922}
   - component: {fileID: 1574623921}
   - component: {fileID: 1574623923}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Untitled_Artwork 56 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49959,7 +49959,7 @@ GameObject:
   - component: {fileID: 1946029962}
   - component: {fileID: 1946029961}
   - component: {fileID: 1946029963}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Untitled_Artwork 56 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
