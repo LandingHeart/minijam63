@@ -38,17 +38,18 @@ public class ToggleTimeScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                futureBackground.SetActive(true);
-                nowBackground.SetActive(false);
-                if(debris != null)
-                {
-                    debris.SetActive(true);
-                    particle.Play();
-
-                }
+                
 
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
+                        futureBackground.SetActive(true);
+                        nowBackground.SetActive(false);
+                        if(debris != null)
+                        {
+                            debris.SetActive(true);
+                            particle.Play();
+
+                        }
 
                         if(!player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
                             foreach (GameObject special_seed in special_seeds){
@@ -109,16 +110,18 @@ public class ToggleTimeScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                futureBackground.SetActive(false);
-                nowBackground.SetActive(true);
-                //particle.Stop();
-                if(debris != null)
-                {
-                    debris.SetActive(false);
-                }
+
          
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
+
+                        futureBackground.SetActive(false);
+                        nowBackground.SetActive(true);
+                        //particle.Stop();
+                        if(debris != null)
+                        {
+                            debris.SetActive(false);
+                        }
                         if(!player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
                             foreach (GameObject special_seed in special_seeds){
                                 special_seed.SetActive(true);
