@@ -23,6 +23,9 @@ public class ToggleTimeScript : MonoBehaviour
     public GameObject debris;
     public ParticleSystem particle;
 
+    public GameObject nowBackground;
+    public GameObject futureBackground;
+
     void Start(){
         player = GameObject.Find("Player");
         //treeAnimator.SetTrigger("GrowSmall");
@@ -35,7 +38,8 @@ public class ToggleTimeScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-
+                futureBackground.SetActive(true);
+                nowBackground.SetActive(false);
                 if(debris != null)
                 {
                     debris.SetActive(true);
@@ -105,6 +109,8 @@ public class ToggleTimeScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                futureBackground.SetActive(false);
+                nowBackground.SetActive(true);
                 //particle.Stop();
                 if(debris != null)
                 {
