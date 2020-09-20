@@ -315,6 +315,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8243270494686744999, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
   m_PrefabInstance: {fileID: 992515480}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &491880593 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8826805164378531029, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
+  m_PrefabInstance: {fileID: 992515480}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &675660644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1086,11 @@ Transform:
 --- !u!1 &1273923738 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8243270496148201018, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
+  m_PrefabInstance: {fileID: 992515480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1273923740 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4331273965726054918, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
   m_PrefabInstance: {fileID: 992515480}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1400028962
@@ -2032,16 +2042,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7663535235845304143, guid: a5712c309be3a034f847e3ef5e77a9b2, type: 3}
       propertyPath: treeAnimators.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7663535235845304143, guid: a5712c309be3a034f847e3ef5e77a9b2, type: 3}
       propertyPath: seedAnimators.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7663535235845304143, guid: a5712c309be3a034f847e3ef5e77a9b2, type: 3}
       propertyPath: treeAnimators.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1273923740}
     - target: {fileID: 7663535235845304143, guid: a5712c309be3a034f847e3ef5e77a9b2, type: 3}
       propertyPath: treeAnimators.Array.data[1]
       value: 
@@ -2049,7 +2059,7 @@ PrefabInstance:
     - target: {fileID: 7663535235845304143, guid: a5712c309be3a034f847e3ef5e77a9b2, type: 3}
       propertyPath: seedAnimators.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 491880593}
     - target: {fileID: 7663535235845304143, guid: a5712c309be3a034f847e3ef5e77a9b2, type: 3}
       propertyPath: seedAnimators.Array.data[1]
       value: 
