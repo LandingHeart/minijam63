@@ -968,6 +968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plant
       objectReference: {fileID: 0}
+    - target: {fileID: 8243270496148201018, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.6
@@ -1309,11 +1313,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5686230941558888836, guid: fec902ae8d5c0b04087f0d921c86960a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.7
+      value: 39.3
       objectReference: {fileID: 0}
     - target: {fileID: 5686230941558888836, guid: fec902ae8d5c0b04087f0d921c86960a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1
+      value: 10.7
       objectReference: {fileID: 0}
     - target: {fileID: 5686230941558888836, guid: fec902ae8d5c0b04087f0d921c86960a, type: 3}
       propertyPath: m_LocalPosition.z
