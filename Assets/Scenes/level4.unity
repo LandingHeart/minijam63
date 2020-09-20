@@ -69600,6 +69600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameMaster
       objectReference: {fileID: 0}
+    - target: {fileID: 7663535235845304141, guid: a5712c309be3a034f847e3ef5e77a9b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7663535235845304143, guid: a5712c309be3a034f847e3ef5e77a9b2, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -70072,7 +70076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5686230941558888836, guid: fec902ae8d5c0b04087f0d921c86960a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.8243513
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5686230941558888836, guid: fec902ae8d5c0b04087f0d921c86960a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70116,13 +70120,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8452105071810609206, guid: fec902ae8d5c0b04087f0d921c86960a, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8452105071810609206, guid: fec902ae8d5c0b04087f0d921c86960a, type: 3}
       propertyPath: playerAnim
       value: 
       objectReference: {fileID: 2883734187729725022}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8452105071810609206, guid: fec902ae8d5c0b04087f0d921c86960a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fec902ae8d5c0b04087f0d921c86960a, type: 3}
 --- !u!1 &1411732512 stripped
 GameObject:
@@ -70136,7 +70141,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411732512}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b3a140a96eb42ec9dd0ffad5a8a59b, type: 3}
   m_Name: 
@@ -70146,9 +70151,11 @@ MonoBehaviour:
   rb: {fileID: 2883734187729725023}
   _anim: {fileID: 2883734187729725022}
   level1Platform: {fileID: 1148645368}
-  nowPlatform1: {fileID: 0}
+  nowPlatform1: {fileID: 408463709}
   nowbackground: {fileID: 574973170}
   futureBackground: {fileID: 267418284}
+  manager: {fileID: 2114990913}
+  count: 0
 --- !u!1 &1415602528
 GameObject:
   m_ObjectHideFlags: 0
@@ -70324,7 +70331,7 @@ GameObject:
   - component: {fileID: 1501198325}
   - component: {fileID: 1501198324}
   m_Layer: 0
-  m_Name: SceneMaster
+  m_Name: SceneMasterLVL1SCRIPT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70345,12 +70352,10 @@ MonoBehaviour:
   on: 0
   nowPlatform: {fileID: 202985755}
   futurePlatform: {fileID: 1716582924}
-  nowPlatform1: {fileID: 0}
-  futurePlatform1: {fileID: 0}
+  nowPlatform1: {fileID: 408463709}
+  futurePlatform1: {fileID: 2079254229}
   nowBackgroundmap: {fileID: 574973170}
   futureBackgroundmap: {fileID: 267418284}
-  nowCloud: {fileID: 0}
-  futureClound: {fileID: 0}
   debris: {fileID: 932855210}
 --- !u!4 &1501198325
 Transform:
@@ -79269,6 +79274,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2114990913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1496243492699939015, guid: c90f54e5e54b4a44db7d46cb70884c2f, type: 3}
+  m_PrefabInstance: {fileID: 439130807}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a174407f4e2785046b820060d02e70f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2125687745
 GameObject:
   m_ObjectHideFlags: 0

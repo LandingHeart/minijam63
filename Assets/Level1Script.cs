@@ -16,9 +16,6 @@ public class Level1Script : MonoBehaviour
     public GameObject nowBackgroundmap;
     public GameObject futureBackgroundmap;
 
-    public GameObject nowCloud;
-    public GameObject futureClound;
-
     public DebrisScript debris;
 
     void Update()
