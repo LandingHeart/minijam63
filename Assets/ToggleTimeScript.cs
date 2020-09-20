@@ -7,7 +7,7 @@ public class ToggleTimeScript : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] seeds;
     public GameObject[] trees;
-
+    public Animator[] treeAnimators;
     public GameObject[] special_seeds;
     public GameObject[] special_trees;
     public Animator[] special_treeAnimators;
@@ -15,7 +15,6 @@ public class ToggleTimeScript : MonoBehaviour
     bool on = true;
     bool is_Tree = false;
     GameObject player;
-    public Animator[] treeAnimators;
     public GameObject nowPlatform;
     public GameObject futurePlatform;
     public Animator[] nowAnimators;
@@ -38,14 +37,29 @@ public class ToggleTimeScript : MonoBehaviour
                     if(!inCooldown){
 
                         if(!player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
-                            foreach (GameObject special_seeds in special_seeds){
-                                special_seeds.SetActive(false);
+                            foreach (GameObject special_seed in special_seeds){
+                                special_seed.SetActive(false);
+                                Debug.Log(special_seed.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld());
                             }
                             foreach (GameObject special_tree in special_trees){
                                 special_tree.SetActive(true);
                             }
                             foreach (Animator special_treeAnimator in special_treeAnimators){
                                 special_treeAnimator.SetTrigger("Grow");
+                            }
+                        }
+                        if(player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
+                            foreach (GameObject special_seed in special_seeds){
+                                if(!special_seed.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld())  // if not getting held
+                                    special_seed.SetActive(false);
+                            }
+                            foreach (GameObject special_tree in special_trees){
+                                if(!special_tree.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld())  // if not getting held
+                                    special_tree.SetActive(true);
+                            }
+                            foreach (Animator special_treeAnimator in special_treeAnimators){
+                                if(!special_treeAnimator.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld())  // if not getting held
+                                    special_treeAnimator.SetTrigger("Grow");
                             }
                         }
                         foreach (GameObject seed in seeds){
@@ -84,13 +98,25 @@ public class ToggleTimeScript : MonoBehaviour
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
                         if(!player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
-                            foreach (GameObject special_seeds in special_seeds){
-                                special_seeds.SetActive(true);
+                            foreach (GameObject special_seed in special_seeds){
+                                special_seed.SetActive(true);
                             }
                             foreach (Animator special_treeAnimator in special_treeAnimators){
                                 special_treeAnimator.SetTrigger("GrowSmall");
                             }
                             StartCoroutine(setSpecialTreeToFalseInSeconds());
+                        }
+
+                        if(player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
+                            foreach (GameObject special_seed in special_seeds){
+                                if(!special_seed.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld())  // if not getting held
+                                    special_seed.SetActive(true);
+                            }
+                            foreach (Animator special_treeAnimator in special_treeAnimators){
+                                if(!special_treeAnimator.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld())  // if not getting held
+                                    special_treeAnimator.SetTrigger("GrowSmall");
+                            }
+                            StartCoroutine(setSpecialTreeToFalseInSeconds2());
                         }
                         foreach (GameObject seed in seeds){
                             seed.SetActive(true);
@@ -136,6 +162,16 @@ public class ToggleTimeScript : MonoBehaviour
         }
     }
 
+
+    IEnumerator setSpecialTreeToFalseInSeconds2()
+    {
+        yield return new WaitForSeconds(1f);
+
+        foreach (GameObject special_tree in special_trees){
+            if(!special_tree.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld())  // if not getting held
+                special_tree.SetActive(false);
+        }
+    }
     IEnumerator setBuildingsToFalseInSeconds(GameObject platform)
     {
         yield return new WaitForSeconds(1f);

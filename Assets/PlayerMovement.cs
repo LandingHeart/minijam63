@@ -107,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
                     if (grabCheck.collider.tag == "specialPlant")
                     {
                         isHoldingSpecial = true;
+                        grabCheck.collider.gameObject.GetComponent<SpecialPlantScript>().setHolding(true);
                     }
                     isHolding = true;
                     grabCheck.collider.gameObject.transform.parent = boxHolder;
@@ -131,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
                         if (grabCheck.collider.tag == "specialPlant")
                         {
                             isHoldingSpecial = false;
+                            grabCheck.collider.gameObject.GetComponent<SpecialPlantScript>().setHolding(false);
                         }
                         isHolding = false;
                         grabCheck.collider.gameObject.transform.parent = null;
