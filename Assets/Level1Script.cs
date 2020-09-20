@@ -13,8 +13,10 @@ public class Level1Script : MonoBehaviour
     public GameObject nowPlatform1;
     public GameObject futurePlatform1;
 
+    public GameObject nowBackgroundmap;
+    public GameObject futureBackgroundmap;
 
-
+    
 
     // Update is called once per frame
     void Update()
@@ -27,6 +29,8 @@ public class Level1Script : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     nowPlatform.SetActive(true);
+                    nowBackgroundmap.SetActive(true);
+                    futureBackgroundmap.SetActive(false);
                     futurePlatform.SetActive(false);
                     on = false;
                 }
@@ -36,6 +40,8 @@ public class Level1Script : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     nowPlatform.SetActive(false);
+                    nowBackgroundmap.SetActive(false);
+                    futureBackgroundmap.SetActive(true);
                     futurePlatform.SetActive(true);
                     on = true;
                 }
@@ -48,6 +54,8 @@ public class Level1Script : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     nowPlatform1.SetActive(true);
+                    nowBackgroundmap.SetActive(true);
+                    futureBackgroundmap.SetActive(false);
                     futurePlatform1.SetActive(false);
                     on = false;
                 }
@@ -57,6 +65,8 @@ public class Level1Script : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     nowPlatform1.SetActive(false);
+                    nowBackgroundmap.SetActive(false);
+                    futureBackgroundmap.SetActive(true);
                     futurePlatform1.SetActive(true);
                     on = true;
                 }

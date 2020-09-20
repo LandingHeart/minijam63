@@ -22,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
     bool isHolding = false;
     bool isHoldingSpecial = false;
 
-    //private PlayerAnimation _playerAnim;
-
     [SerializeField]
     private float jumpForce = 10f;
 
@@ -35,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     public bool canJump = true;
 
     public bool showAlert = false;
+
+    public Animator _anim;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +60,11 @@ public class PlayerMovement : MonoBehaviour
         return isHoldingSpecial;
     }
 
+    public void MoveAnimation(float move)
+    {
+        _anim.SetFloat("Move", Mathf.Abs(move));
+
+    }
     public void Movement()
     {
         float move = Input.GetAxisRaw("Horizontal");
@@ -81,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
             if (canJump)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                _anim.SetTrigger("Jump");
             }
             canJump = false;
 
@@ -91,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
         checkHoldItem();
 
         checkClimbing();
+        MoveAnimation(move);
     }
 
     void checkHoldItem()
@@ -118,9 +125,9 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (isHolding && !isHoldingSpecial && Input.GetKeyDown(KeyCode.Q))
             {
-                alertHolder.gameObject.SetActive(true);
+                //alertHolder.gameObject.SetActive(true);
                 showAlert = true;
-                Invoke("hideAlert", 1f);
+                //Invoke("hideAlert", 1f);
             }
             else if ((isHolding || isHoldingSpecial) && Input.GetKeyDown(KeyCode.E))
             {

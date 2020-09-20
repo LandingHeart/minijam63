@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4798851379236273788}
   - component: {fileID: 4798851379236273763}
   m_Layer: 0
-  m_Name: Backbround Tilemap
+  m_Name: now map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
