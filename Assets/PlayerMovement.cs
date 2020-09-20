@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform boxHolder;
     public float holdRayDist;
     bool isHolding = false;
+    bool isHoldingSpecial = false;
 
     //private PlayerAnimation _playerAnim;
 
@@ -46,7 +47,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public bool isHoldingItem(){
+        if(isHoldingSpecialItem()) return false;  // if holding special, then it means not holding normal
         return isHolding;
+    }
+
+    public bool isHoldingSpecialItem(){
+        return isHoldingSpecial;
     }
 
     public void Movement()
@@ -85,10 +91,13 @@ public class PlayerMovement : MonoBehaviour
     void checkHoldItem(){
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, holdRayDist, plantLayer);
         if(grabCheck.collider != null){
-            Debug.Log("seed");
+            // Debug.Log("seed");
             if(!isHolding && Input.GetKeyDown(KeyCode.E)){
                 ToggleTimeScript toggleTimeScript = GameObject.Find("GameMaster").GetComponent<ToggleTimeScript>();
                 if(toggleTimeScript && !toggleTimeScript.isTree()){
+                    if(grabCheck.collider.tag == "specialPlant"){
+                        isHoldingSpecial = true;
+                    }
                     isHolding = true;
                     grabCheck.collider.gameObject.transform.parent = boxHolder;
                     grabCheck.collider.gameObject.transform.position = boxHolder.position;
@@ -98,6 +107,9 @@ public class PlayerMovement : MonoBehaviour
             }else if(isHolding && Input.GetKeyDown(KeyCode.E)){
                 ToggleTimeScript toggleTimeScript = GameObject.Find("GameMaster").GetComponent<ToggleTimeScript>();
                 if(toggleTimeScript && !toggleTimeScript.isTree()){
+                    if(grabCheck.collider.tag == "specialPlant"){
+                        isHoldingSpecial = false;
+                    }
                     isHolding = false;
                     grabCheck.collider.gameObject.transform.parent = null;
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
@@ -109,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
     void checkClimbing(){
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, treeLayer);
         if(hitInfo.collider != null){
-            Debug.Log("tree");
+            // Debug.Log("tree");
             if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)){
                 isClimbing = true;
             }

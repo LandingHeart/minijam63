@@ -7,6 +7,12 @@ public class ToggleTimeScript : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] seeds;
     public GameObject[] trees;
+
+    public GameObject[] special_seeds;
+    public GameObject[] special_trees;
+    public Animator[] special_treeAnimators;
+    public Animator[] special_seedAnimators;
+
     public bool on = false;
     bool is_Tree = false;
     GameObject player;
@@ -30,8 +36,11 @@ public class ToggleTimeScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
+
+
                         foreach (GameObject seed in seeds){
                             seed.SetActive(false);
                         }
