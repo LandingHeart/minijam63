@@ -16,6 +16,8 @@ public class MyKeyScript : MonoBehaviour
     public GameObject nowbackground;
     public GameObject futureBackground;
     public SceneManagerScript manager;
+
+    public GameObject nextLvlUI;
     public int count;
     private void Start()
     {
@@ -44,7 +46,7 @@ public class MyKeyScript : MonoBehaviour
         count++;
         if(count == 2)
         {
-            manager.nextLevel();
+            nextLvlUI.SetActive(true);
         }
         Level1Script.clear = true;
         

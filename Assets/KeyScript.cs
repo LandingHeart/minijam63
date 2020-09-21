@@ -6,6 +6,7 @@ public class KeyScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public Animator playerAnim;
+    public GameObject nextLvlUI;
     void Start()
     {
 
@@ -19,8 +20,9 @@ public class KeyScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player") {
+        if (other.CompareTag("Player")) {
             playerAnim.SetTrigger("Levelup");
+            
             StartCoroutine(GoToNextLevel());
         }
     }
@@ -29,9 +31,10 @@ public class KeyScript : MonoBehaviour
     IEnumerator GoToNextLevel()
     {
         yield return new WaitForSeconds(2f);
+        nextLvlUI.SetActive(true);
         Debug.Log("Win. Next Level.");
-        SceneManagerScript sceneManagerScript = GameObject.Find("SceneManager").GetComponent<SceneManagerScript>();
-        sceneManagerScript.nextLevel();
+        //SceneManagerScript sceneManagerScript = GameObject.Find("SceneManager").GetComponent<SceneManagerScript>();
+        //sceneManagerScript.nextLevel();
     }
 }
         
