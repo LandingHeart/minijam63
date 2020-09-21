@@ -47348,6 +47348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NextLevel UI
       objectReference: {fileID: 0}
+    - target: {fileID: 8039963702962241090, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8039963702962241101, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -49253,7 +49257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083541654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.1, y: -11, z: -15.845099}
+  m_LocalPosition: {x: -30.07, y: -12.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
