@@ -125,6 +125,19 @@ public class PlayerMovement : MonoBehaviour
                     grabCheck.collider.gameObject.transform.position = boxHolder.position;
                     grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 }
+                if (toggleTimeScript && toggleTimeScript.isTree())
+                {
+                    if (grabCheck.collider.tag == "specialPlant")
+                    {
+                        isHoldingSpecial = true;
+                        grabCheck.collider.gameObject.GetComponent<SpecialPlantScript>().setHolding(true);
+                        isHolding = true;
+                        grabCheck.collider.gameObject.transform.parent = boxHolder;
+                        grabCheck.collider.gameObject.transform.position = boxHolder.position;
+                        grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                    }
+                    
+                }
 
             }
             else if (isHolding && !isHoldingSpecial && Input.GetKeyDown(KeyCode.Q))

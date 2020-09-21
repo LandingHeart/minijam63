@@ -750,10 +750,11 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "You can travel time (Q) \nwith blue seeds, but not red seeds"
+  m_Text: "You can travel time (Q) \nwith blue seeds, but not red seeds\nIn other
+    words, you can hold a blue seed and climb trees!"
 --- !u!222 &614388889
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1994,11 +1995,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 8336a235d1aecd9489733c50c6567aaa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5
+      value: -2.88
       objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 8336a235d1aecd9489733c50c6567aaa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 8336a235d1aecd9489733c50c6567aaa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2892,11 +2893,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 2.09
       objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 8823460535655499861, guid: 9f48b9a3649b8e84d99e7ed041f3196e, type: 3}
       propertyPath: m_LocalPosition.z

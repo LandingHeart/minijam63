@@ -48,6 +48,8 @@ public class MyKeyScript : MonoBehaviour
         }
         Level1Script.clear = true;
         
+        SceneManagerScript sceneManagerScript = GameObject.Find("SceneManager").GetComponent<SceneManagerScript>();
+        sceneManagerScript.nextLevel();
         
     }
 }

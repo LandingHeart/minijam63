@@ -432,7 +432,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2110715386205482761, guid: 14a335ee3e7684427ab935ca0b5a4b8d, type: 3}
       propertyPath: m_Text
-      value: Q to toggle Now/Future
+      value: Press Q to travel between Now/Future!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110715386205482761, guid: 14a335ee3e7684427ab935ca0b5a4b8d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2110715386205482764, guid: 14a335ee3e7684427ab935ca0b5a4b8d, type: 3}
       propertyPath: m_Name
