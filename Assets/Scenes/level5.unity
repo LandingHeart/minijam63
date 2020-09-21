@@ -1031,9 +1031,29 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: nextLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 8039963702735653095, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 00ade1af7c2ab41328701fd199152c86, type: 3}
+    - target: {fileID: 8039963702903054233, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.039215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039963702903054233, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039963702903054233, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29803923
+      objectReference: {fileID: 0}
     - target: {fileID: 8039963702962241090, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
       propertyPath: m_Name
       value: NextLevel UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039963702962241090, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8039963702962241101, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
       propertyPath: m_LocalPosition.x
