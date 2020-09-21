@@ -39,7 +39,6 @@ public class ToggleTimeScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 
-
                 if (player && !player.GetComponent<PlayerMovement>().isHoldingItem()){
                     if(!inCooldown){
                         futureBackground.SetActive(true);
@@ -78,22 +77,27 @@ public class ToggleTimeScript : MonoBehaviour
                             }
                         }
                         foreach (GameObject seed in seeds){
-                            seed.SetActive(false);
+                            if(seed != null)
+                                seed.SetActive(false);
                         }
                         foreach (GameObject tree in trees){
-                            tree.SetActive(true);
+                            if(tree != null)
+                                tree.SetActive(true);
                         }
                         if(futurePlatform) futurePlatform.SetActive(true);
 
                         foreach (Animator treeAnimator in treeAnimators){
-                            treeAnimator.SetTrigger("Grow");
+                            if(treeAnimator != null)
+                                treeAnimator.SetTrigger("Grow");
                         }
 
                         foreach (Animator nowAnimator in nowAnimators){
-                            nowAnimator.SetTrigger("Shrink");
+                            if(nowAnimator != null)
+                                nowAnimator.SetTrigger("Shrink");
                         }
                         foreach (Animator futureAnimators in futureAnimators){
-                            futureAnimators.SetTrigger("Grow");
+                            if(futureAnimators != null)
+                                futureAnimators.SetTrigger("Grow");
                         }
 
                         StartCoroutine("setBuildingsToFalseInSeconds", nowPlatform);
@@ -144,21 +148,25 @@ public class ToggleTimeScript : MonoBehaviour
                             StartCoroutine(setSpecialTreeToFalseInSeconds2());
                         }
                         foreach (GameObject seed in seeds){
-                            seed.SetActive(true);
+                            if(seed != null)
+                                seed.SetActive(true);
                         }
                         
                         foreach (Animator treeAnimator in treeAnimators){
-                            treeAnimator.SetTrigger("GrowSmall");
+                            if(treeAnimator != null)
+                                treeAnimator.SetTrigger("GrowSmall");
                         }
                         StartCoroutine(setToFalseInSeconds());
                         if(nowPlatform) nowPlatform.SetActive(true);
 
 
                         foreach (Animator nowAnimator in nowAnimators){
-                            nowAnimator.SetTrigger("Grow");
+                            if(nowAnimator != null)
+                                nowAnimator.SetTrigger("Grow");
                         }
                         foreach (Animator futureAnimator in futureAnimators){
-                            futureAnimator.SetTrigger("Shrink");
+                            if(futureAnimator != null)
+                                futureAnimator.SetTrigger("Shrink");
                         }
                         
                         StartCoroutine("setBuildingsToFalseInSeconds", futurePlatform);
@@ -175,7 +183,8 @@ public class ToggleTimeScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         foreach (GameObject tree in trees){
-            tree.SetActive(false);
+            if(tree != null)
+                tree.SetActive(false);
         }
     }
 
@@ -183,7 +192,8 @@ public class ToggleTimeScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         foreach (GameObject special_tree in special_trees){
-            special_tree.SetActive(false);
+            if(special_tree != null)
+                special_tree.SetActive(false);
         }
     }
 
@@ -193,8 +203,9 @@ public class ToggleTimeScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         foreach (GameObject special_tree in special_trees){
-            if(!special_tree.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld())  // if not getting held
-                special_tree.SetActive(false);
+            if(special_tree != null)
+                if(!special_tree.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld())  // if not getting held
+                    special_tree.SetActive(false);
         }
     }
     IEnumerator setBuildingsToFalseInSeconds(GameObject platform)
