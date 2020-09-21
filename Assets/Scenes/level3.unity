@@ -2337,15 +2337,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8039963702735653095, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
       propertyPath: m_Color.r
-      value: 0.16470589
+      value: 0.039215688
       objectReference: {fileID: 0}
     - target: {fileID: 8039963702735653095, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
       propertyPath: m_Color.g
-      value: 0.21568628
+      value: 0.29411766
       objectReference: {fileID: 0}
     - target: {fileID: 8039963702735653095, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
       propertyPath: m_Color.b
-      value: 0.27450982
+      value: 0.29803923
       objectReference: {fileID: 0}
     - target: {fileID: 8039963702962241090, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
       propertyPath: m_Name
@@ -2353,7 +2353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8039963702962241090, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8039963702962241101, guid: 8c40548656eb44ade9f00b42eb98049a, type: 3}
       propertyPath: m_LocalPosition.x
