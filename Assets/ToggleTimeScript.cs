@@ -53,7 +53,7 @@ public class ToggleTimeScript : MonoBehaviour
                         if(!player.GetComponent<PlayerMovement>().isHoldingSpecialItem()){
                             foreach (GameObject special_seed in special_seeds){
                                 special_seed.SetActive(false);
-                                Debug.Log(special_seed.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld());
+                                // Debug.Log(special_seed.transform.parent.GetComponent<SpecialPlantScript>().isGettingHeld());
                             }
                             foreach (GameObject special_tree in special_trees){
                                 special_tree.SetActive(true);

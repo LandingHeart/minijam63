@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         if (grabCheck.collider != null)
         {
             // Debug.Log("seed");
-            if (!isHolding && Input.GetKeyDown(KeyCode.E))
+            if ((!isHolding && !isHoldingSpecial) && Input.GetKeyDown(KeyCode.E))
             {
                 ToggleTimeScript toggleTimeScript = GameObject.Find("GameMaster").GetComponent<ToggleTimeScript>();
                 if (toggleTimeScript && !toggleTimeScript.isTree())
@@ -129,22 +129,19 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (grabCheck.collider.tag == "specialPlant")
                     {
-                        isHoldingSpecial = true;
-                        grabCheck.collider.gameObject.GetComponent<SpecialPlantScript>().setHolding(true);
-                        isHolding = true;
-                        grabCheck.collider.gameObject.transform.parent = boxHolder;
-                        grabCheck.collider.gameObject.transform.position = boxHolder.position;
-                        grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                        if(grabCheck.collider.gameObject.transform.GetChild(0).gameObject.activeSelf){
+                            isHoldingSpecial = true;
+                            grabCheck.collider.gameObject.GetComponent<SpecialPlantScript>().setHolding(true);
+                            isHolding = true;
+                            grabCheck.collider.gameObject.transform.parent = boxHolder;
+                            grabCheck.collider.gameObject.transform.position = boxHolder.position;
+                            grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                        }
+
                     }
                     
                 }
 
-            }
-            else if (isHolding && !isHoldingSpecial && Input.GetKeyDown(KeyCode.Q))
-            {
-                //alertHolder.gameObject.SetActive(true);
-                showAlert = true;
-                //Invoke("hideAlert", 1f);
             }
             else if ((isHolding || isHoldingSpecial) && Input.GetKeyDown(KeyCode.E))
             {

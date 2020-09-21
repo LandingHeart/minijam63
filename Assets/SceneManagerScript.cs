@@ -17,7 +17,7 @@ public class SceneManagerScript : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.R)){  // reload scene
-            SceneManager.LoadScene(scene.name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
