@@ -43,11 +43,7 @@ public class MyKeyScript : MonoBehaviour
         futureBackground.SetActive(false);
         yield return new WaitForSeconds(3f);
         player.position = startingpoint.position;
-        count++;
-        if(count == 2)
-        {
-            nextLvlUI.SetActive(true);
-        }
+        nextLvlUI.SetActive(true);
         Level1Script.clear = true;
         
         // SceneManagerScript sceneManagerScript = GameObject.Find("SceneManager").GetComponent<SceneManagerScript>();
